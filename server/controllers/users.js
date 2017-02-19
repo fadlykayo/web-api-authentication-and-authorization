@@ -57,7 +57,9 @@ module.exports = {
       if (hash.verify(req.body.password, data.password)) {
         let token = jwt.sign({data}, config.secret, {algorithm: 'HS256'}, {expiresIn: '1h'})
         res.send({
-          token: token
+          token: token,
+          email: data.email,
+          id: data._id
         })
       } else {
         res.send({message: 'Authentication failed. Wrong password.'})

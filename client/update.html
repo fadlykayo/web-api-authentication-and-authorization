@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Web API Auth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <link href="index.css" type="text/css" rel="stylesheet">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <h3 style="color: #006666;">Update Your Data:</h3>
+        <br>
+        <p id="error-message"></p>
+        <form id="update-form" method="post">
+          <div class="form-group">
+            <label for="username_update">Username:</label>
+            <input type="text" class="form-control" name="username_update" id="username_update" value="" placeholder="Username">
+          </div>
+          <div class="form-group">
+            <label for="password_update">Password:</label>
+            <input type="password" class="form-control" name="password_update" id="password_update" value="" placeholder="Your password">
+          </div>
+          <div class="form-group">
+            <label for="email_update">Email:</label>
+            <input type="email" class="form-control" name="email_update" id="email_update" value="" placeholder="Email">
+          </div>
+          <br>
+          <br>
+          <button type="submit" class="btn teal darken-3">Update</button>
+        </form>
+        <br>
+        <hr>
+        <a href="/home.html">Back to Home</a>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <script src="index.js" charset="utf-8"></script>
+  </body>
+</html>
