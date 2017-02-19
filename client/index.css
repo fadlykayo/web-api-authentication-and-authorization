@@ -1,0 +1,17 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.navbar {
+  padding: 18px 100px;
+  background-color: #1e623d;
+  height: 100px
+}
+
+.login-form {
+  margin: 100px 0px;
+}

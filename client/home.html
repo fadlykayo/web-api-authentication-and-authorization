@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Web API Auth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <link href="index.css" type="text/css" rel="stylesheet">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  </head>
+  <body>
+
+    <nav class="navbar">
+      <div class="nav-wrapper" style="margin-top:10px;">
+        <a href="/home.html" class="brand-logo">Web API Authentication</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a id="nav-username" style="margin: 0px 20px 0px 0px; font-size:20px;"></a></li>
+          <li><button id="logout" class="btn red darken-4">Logout</button></li>
+        </ul>
+      </div>
+    </nav>
+    <br>
+
+    <div class="row" style="margin: 20px 100px;">
+      <h3 style="color: #006666;">Event List:</h3>
+      <br>
+      <br>
+      <table>
+        <thead>
+          <tr>
+            <th data-field="title">Title</th>
+            <th data-field="date">Date</th>
+            <th data-field="location">Location</th>
+            <th data-field="contact">Contact Person</th>
+          </tr>
+        </thead>
+        <tbody id="posts">
+
+        </tbody>
+      </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <script src="index.js" charset="utf-8"></script>
+  </body>
+</html>

@@ -27,7 +27,11 @@ module.exports = {
   updateUser: (req, res) => {
     Users.findOneAndUpdate({
       _id: req.params.id
-    }, {username: req.body.username, password: hash.generate(req.body.password)}, {
+    }, {
+      username: req.body.username,
+      password: hash.generate(req.body.password),
+      email: req.body.email
+    }, {
       new: true
     }).then(function (data) {
       res.send(data)
@@ -53,14 +57,13 @@ module.exports = {
       if (hash.verify(req.body.password, data.password)) {
         let token = jwt.sign({data}, config.secret, {algorithm: 'HS256'}, {expiresIn: '1h'})
         res.send({
-          s: true,
           token: token
         })
       } else {
-        res.json({s: false, m: 'Authentication failed. Wrong password.'})
+        res.json({m: 'Authentication failed. Wrong password.'})
       }
     }).catch(function () {
-      res.send({s: false, m: 'Authentication failed. User not found.'})
+      res.send({m: 'Authentication failed. User not found.'})
     })
   }
 }
