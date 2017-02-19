@@ -20,11 +20,15 @@
     </nav>
 
     <div class="container">
+      <div class="row" style="margin-bottom: 10px;">
+        <h3 style="color: #006666; text-align:center;">Welcome aboard!</h3>
+      </div>
       <div class="row">
-        <div class="col s12 m6 offset-m3 login-form">
+        <div class="col s12 m6 offset-m3 login-form" style="margin-top: 20px;">
           <div class="card" style="background-color: hsl(148, 52%, 98%);">
             <div class="card-content white-text">
               <span class="card-title" style="color: #006666;">Sign In</span>
+              <p style="color: #006666;" id="error-message"></p>
               <br>
               <div class="row">
                 <form id="login-form" class="col s12" method="post">
@@ -40,7 +44,7 @@
                       <label for="password">Password</label>
                     </div>
                   </div>
-                  <button style="margin:0px 10px;" type="submit" class="btn teal darken-3">Login</button>
+                  <button type="submit" class="btn teal darken-3">Login</button>
                 </form>
               </div>
             </div>

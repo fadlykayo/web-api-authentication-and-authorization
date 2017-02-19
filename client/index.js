@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  getUsers()
   let userName = localStorage.getItem('Username')
   $('#nav-username').text('Username: ' + userName)
 })
@@ -16,7 +17,7 @@ $('#login-form').on('submit', (e) => {
         localStorage.setItem('Username', usernameVal)
         window.location.assign('http://localhost:8080/home.html')
       }else {
-        window.location.assign('http://localhost:8080/index.html')
+        $('#error-message').text(resp.message)
       }
     },
     error: function (err) {
@@ -54,43 +55,17 @@ $('#logout').click(function () {
   window.location.assign('http://localhost:8080/index.html')
 })
 
-$('#add-event-form').on('submit', (e) => {
-  e.preventDefault()
-  let titleVal = $('input[name=title_create]').val()
-  let dateVal = $('input[name=date_create]').val()
-  let placeVal = $('input[name=place_create]').val()
-  let contactVal = $('input[name=contact_create]').val()
-  $.ajax({
-    type: 'POST',
-    url: 'http://localhost:3000/api/events',
-    data: {title: titleVal, date: dateVal, place: placeVal, contact: contactVal},
-    success: function (resp) {
-      if (resp.message) {
-        $('#error-message-event').text(resp.message)
-      }else {
-        window.location.assign('http://localhost:8080/home.html')
-      }
-    },
-    error: function (err) {
-      console.log('CREATE Events Request Error')
-      window.location.assign('http://localhost:8080/createevent.html')
-    }
-  })
-})
-
-function getEvents () {
+function getUsers () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:3000/api/events',
+    url: 'http://localhost:3000/auth/users',
     success: function (resp) {
       for (var i = 0; i < resp.length; i++) {
-        let events = resp[i]
+        let users = resp[i]
         $('#posts').append(
           `<tr>
-            <td>${events.title}</td>
-            <td>${events.date}</td>
-            <td>${events.place}</td>
-            <td>${events.contact}</td>
+            <td>${users.username}</td>
+            <td>${users.email}</td>
           </tr>`
         )
       }

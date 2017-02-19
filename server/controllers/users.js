@@ -44,9 +44,9 @@ module.exports = {
     Users.findOneAndRemove({
       _id: req.params.id
     }).then(function (data) {
-      res.send({m: `Deleted User with ID: ${req.params.id}`})
+      res.send({message: `Deleted User with ID: ${req.params.id}`})
     }).catch(function (err) {
-      res.send({m: 'Error data not found'})
+      res.send({message: 'Error data not found'})
     })
   },
 
@@ -60,10 +60,10 @@ module.exports = {
           token: token
         })
       } else {
-        res.json({m: 'Authentication failed. Wrong password.'})
+        res.send({message: 'Authentication failed. Wrong password.'})
       }
     }).catch(function () {
-      res.send({m: 'Authentication failed. User not found.'})
+      res.send({message: 'Authentication failed. User not found.'})
     })
   }
 }
