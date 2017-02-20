@@ -4,11 +4,6 @@ $(document).ready(function () {
   let userEmail = localStorage.getItem('UserEmail')
   $('#nav-username').text('Username: ' + userName)
   $('#nav-email').text('Email: ' + userEmail)
-  if (!localStorage.getItem('UserId')) {
-    window.location.assign('http://localhost:8080/index.html')
-  }else {
-    window.location.assign('http://localhost:8080/home.html')
-  }
 })
 
 $('#login-form').on('submit', (e) => {
