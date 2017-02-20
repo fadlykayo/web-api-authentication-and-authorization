@@ -6,16 +6,19 @@ const UserSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+    uniqueCaseInsensitive: true
   },
   email: {
     type: String,
     required: true,
     unique: true,
+    uniqueCaseInsensitive: true,
     validate: {
       validator: function (email) {
         return RegEx.test(email)
-      }
+      },
+      message: 'Invalid email format'
     }
   },
   password: {
@@ -27,5 +30,5 @@ const UserSchema = new mongoose.Schema({
     timestamps: true
   })
 
-UserSchema.plugin(uniqueValidator)
+UserSchema.plugin(uniqueValidator, { type: 'mongoose-unique-validator' })
 module.exports = mongoose.model('Users', UserSchema)

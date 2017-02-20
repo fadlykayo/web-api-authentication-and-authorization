@@ -41,8 +41,15 @@ $('#register-form').on('submit', (e) => {
     url: 'http://localhost:3000/auth/users/register',
     data: {username: usernameVal, password: passwordVal, email: emailVal},
     success: function (resp) {
-      if (resp.message) {
-        $('#error-message').text(resp.message)
+      if (resp.errors) {
+        if (resp.errors.username) {
+          $('#error-message').text(resp.errors.username.message)
+        }
+        else if (resp.errors.password) {
+          $('#error-message').text(resp.errors.password.message)
+        }else {
+          $('#error-message').text(resp.errors.email.message)
+        }
       }else {
         window.location.assign('http://localhost:8080/index.html')
       }
@@ -65,12 +72,17 @@ $('#update-form').on('submit', (e) => {
     url: `http://localhost:3000/auth/users/${userId}`,
     data: {username: usernameVal, password: passwordVal, email: emailVal},
     success: function (resp) {
-      if (resp.message) {
-        $('#error-message').text(resp.message)
+      if (resp.errors) {
+        if (resp.errors.username) {
+          $('#error-message').text(resp.errors.username.message)
+        }
+        else if (resp.errors.password) {
+          $('#error-message').text(resp.errors.password.message)
+        }else {
+          $('#error-message').text(resp.errors.email.message)
+        }
       }else {
-        localStorage.setItem('Username', resp.username)
-        localStorage.setItem('UserEmail', resp.email)
-        window.location.assign('http://localhost:8080/home.html')
+        window.location.assign('http://localhost:8080/index.html')
       }
     },
     error: function (err) {
